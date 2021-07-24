@@ -1,0 +1,20 @@
+module LedState
+{
+    enum Color
+    {
+        RED,
+        LIME,
+        GREEN,
+        BLUE,
+        WHITE,
+        AQUA,
+        OFF
+    };
+
+    struct Msg
+    {
+        octet index;
+        Color color;
+        float brightness;
+    };
+};
