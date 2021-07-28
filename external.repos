@@ -2,4 +2,8 @@ repositories:
   ext/j7s-blinkt:
     type: git
     url: https://github.com/jpace121/j7s-blinkt.git
+    version: make-work-with-dds
+  ext/argparse:
+    type: git
+    url: https://github.com/p-ranav/argparse.git
     version: master

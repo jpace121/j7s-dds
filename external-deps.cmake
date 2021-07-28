@@ -11,7 +11,18 @@ ExternalProject_Add(ep_blinkt
   BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/blinkt
 )
 list (APPEND EXTRA_CMAKE_ARGS
-  -Dblinkt_interface_DIR=${CMAKE_CURRENT_BINARY_DIR}/blinkt/CMakeFiles
+  -Dblinkt_interface_DIR=${CMAKE_CURRENT_BINARY_DIR}/blinkt
+)
+
+list(APPEND DEPENDENCIES ep_argparse)
+ExternalProject_Add(ep_argparse
+  PREFIX ep_argparse
+  SOURCE_DIR "${PROJECT_SOURCE_DIR}/ext/argparse/"
+  INSTALL_COMMAND ""
+  BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/argparse
+)
+list (APPEND EXTRA_CMAKE_ARGS
+  -Dargparse_DIR=${CMAKE_CURRENT_BINARY_DIR}/argparse
 )
 
 ExternalProject_Add (ep_j7s_dds
@@ -20,4 +31,5 @@ ExternalProject_Add (ep_j7s_dds
   SOURCE_DIR "${PROJECT_SOURCE_DIR}"
   CMAKE_ARGS -DUSE_SUPERBUILD=OFF ${EXTRA_CMAKE_ARGS}
   INSTALL_COMMAND ""
-  BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
+  BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}
+)
